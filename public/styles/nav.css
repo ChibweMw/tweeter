@@ -1,0 +1,26 @@
+#nav-bar {
+  position: fixed;
+  height: 80px;
+  top: 0;
+  right: 0;
+  bottom: 80px;
+  left: 0;
+  z-index: 1030;
+  background-color: #00a087;
+  color: #e8fdff;
+  padding: 0px 2em;
+}
+
+#nav-bar .logo {
+  float: left;
+  height: 80px;
+  width: 80px;
+  padding-right: 10px;
+}
+
+#nav-bar .header {
+  height: 80px;
+  float: left;
+  line-height: 1.5;
+  font-size: 3em;
+}
