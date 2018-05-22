@@ -37,3 +37,11 @@ body {
   margin-right: auto;
   margin-left: auto;
  }
+
+.counter {
+  color: #777777;
+ }
+
+.red {
+  color: red;
+ }
