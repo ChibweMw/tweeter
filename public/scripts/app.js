@@ -84,7 +84,7 @@ $(function () {
         method : 'POST',
         data : tweetText
       }).done(function (newTweet) {
-        $("#feed").append(createTweetElement(newTweet));
+        $("#feed").prepend(createTweetElement(newTweet));
         $("textarea[name='text']").val('');
         $(".counter").text('140');
       });
