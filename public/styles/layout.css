@@ -50,3 +50,12 @@ body {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
+.flash {
+  background-color: turquoise;
+  color: black;
+  width: 300px;
+  /*z-index: 1000px;*/
+  margin-bottom: auto;
+  margin-left: auto;
+}
