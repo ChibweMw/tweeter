@@ -1,5 +1,5 @@
 
-article.tweet header {
+.tweet header {
   background-color: #eee;
   padding: 0.25em 0.25em;
   overflow: auto;
@@ -7,20 +7,20 @@ article.tweet header {
   border-top-left-radius: 10px;
 }
 
-article.tweet img {
+.tweet .user-avatar {
   float: left;
   background-color: #eee;
   padding: 0.2em 0.2em;
   border-radius: 10px;
 }
 
-article.tweet header span {
+.tweet header .user-handle {
   float: right;
   line-height: 2em;
   color: #b9b9b9;
 }
 
-article.tweet header h2 {
+.tweet header .user-name {
   float: left;
   line-height: 2em;
   font-size: 2em;
@@ -30,27 +30,28 @@ article.tweet header h2 {
 }
 
 
-article.tweet footer {
+.tweet footer {
   border-top: 1px solid #eee;
   padding: 0.35em 0.35em;
   font-size: 0.9em;
   color: #b9b9b9;
 }
 
-article.tweet div {
+.tweet .content {
   font-size: 1.2em;
   padding: 1em 0.4em;
 }
 
-article.tweet {
+.tweet {
   background-color: white;
   border: 1px solid #c3c3c3;
   border-radius: 10px;
+  margin-bottom: 2em;
   margin-right: 2em;
   margin-left: 2em;
 }
 
-article.tweet .mini-icon {
+.tweet .mini-icon {
   float: right;
   display: none;
   color: skyblue;
@@ -58,19 +59,15 @@ article.tweet .mini-icon {
   padding-left: 0.2em;
 }
 
-article.tweet:hover .mini-icon {
+.tweet:hover .mini-icon {
   display: inline;
   font-size: 1em;
 }
 
-article.tweet:hover {
+.tweet:hover {
   border-color: #244751;
 }
 
-article.tweet header :hover {
+.tweet header :hover {
   color: #244751;
 }
-
-
-/*h2 hover text color #244751*/
-/*h2 non hover color #7d878a*/
