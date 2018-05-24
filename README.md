@@ -10,5 +10,5 @@ Currently, anyone may make a tweet. No need for an account! Go ahead and try it 
 
 You may then head over [here](http://localhost:8080/) and play with the app!
 
-!["The feed!"]()
-!["Active Feed!"]()
+!["The feed!"](https://github.com/ChibweMw/tweeter/blob/master/docs/Top-of-page.png?raw=true)
+!["Active Feed!"](https://github.com/ChibweMw/tweeter/blob/master/docs/Some-tweets.png?raw=true)
