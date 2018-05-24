@@ -10,6 +10,7 @@
 $(function () {
 
   function renderTweets (tweetData) {
+    console.log(tweetData);
     tweetData.forEach(function (tweet) {
       return $("#feed").append(createTweetElement(tweet));
     });
