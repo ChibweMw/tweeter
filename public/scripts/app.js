@@ -10,7 +10,8 @@
 $(function () {
 
   function renderTweets (tweetData) {
-    console.log(tweetData);
+    const sortNewestFirst = (a, b) => a.created_at - b.created_at;
+    // tweetData.sort(sortNewestFirst);
     tweetData.forEach(function (tweet) {
       return $("#feed").append(createTweetElement(tweet));
     });
