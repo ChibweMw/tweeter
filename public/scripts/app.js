@@ -23,24 +23,24 @@ $(function () {
     //tweet header elements
     var $tweetHeader = $("<header>");
     //header children
-    var $userAvatar = $("<img src=" + userData.user.avatars.regular + ">").addClass("user-avatar");
-    var $userName = $("<h2>" + userData.user.name + "</h2>").addClass("user-name");
-    var $userHandle = $("<span>" + userData.user.handle + "</span>").addClass("user-handle");
+    var $userAvatar = $("<img>").attr("src", userData.user.avatars.regular).addClass("user-avatar");
+    var $userName = $("<h2>").text(userData.user.name).addClass("user-name");
+    var $userHandle = $("<span>").text(userData.user.handle).addClass("user-handle");
     //append children to header
     $tweetHeader.append($userAvatar);
     $tweetHeader.append($userName);
     $tweetHeader.append($userHandle);
 
     //tweet `body` elements
-    var $tweetBody = $("<div>" + userData.content.text + "</div>").addClass("content");
+    var $tweetBody = $("<div>").text(userData.content.text).addClass("content");
 
     //tweet footer elements
     var $tweetFooter = $("<footer>");
-    //footer children /////HOW CAN THIS BE MORE SUCURE?\\\\\\\
-    var $timeStamp = $("<span>" + userData.created_at + "</span>").addClass("time-stamp");
-    var $heart = $("<span><i class='fas fa-heart'></i></span>").addClass("mini-icon");
-    var $retweet = $("<span><i class='fas fa-retweet'></i></span>").addClass("mini-icon");
-    var $flag = $("<span><i class='fas fa-flag'></i></span>").addClass("mini-icon");
+    //footer children
+    var $timeStamp = $("<span>").text(userData.created_at).addClass("time-stamp");
+    var $heart = $("<span class='mini-icon'><i class='fas fa-heart'></i></span>");
+    var $retweet = $("<span class='mini-icon'><i class='fas fa-retweet'></i></span>");
+    var $flag = $("<span class='mini-icon'><i class='fas fa-flag'></i></span>");
     //append children to footer
     $tweetFooter.append($timeStamp);
     $tweetFooter.append($heart);
@@ -67,8 +67,14 @@ $(function () {
 
   loadTweets();
 
+  //toggle tweet composer
+  $("#tweetButton").on("click", function() {
+    $(".tweetie").slideToggle("fast", function() {
+      $("textarea[name='text']").focus();
+    });
+  });
 
-
+  //New tweets submitted here
   $("form").on("submit", function (event) {
     event.preventDefault();
 

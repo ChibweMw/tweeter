@@ -24,3 +24,20 @@
   line-height: 1.5;
   font-size: 3em;
 }
+
+#nav-bar button {
+  background-color: white;
+  color: #00a087;
+  float: right;
+  margin: 0.4em 0.7em;
+  padding: 1.45em 0.5em;
+  border-radius: 7px;
+  border: 1px solid black;
+  opacity: 0.8;
+
+}
+
+#nav-bar button:hover {
+  color: black;
+  opacity: 1;
+}
