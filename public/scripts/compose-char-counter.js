@@ -3,11 +3,7 @@ $(document).ready(function () {
     var counter = $(this).closest(".container").find('.counter');
     var charLimit = 140;
     var charCount = charLimit - this.value.length;
-    if (charCount < 0) {
-      counter.addClass("red");
-    } else {
-      counter.removeClass("red");
-    }
+    (charCount < 0) ? counter.addClass("red") : counter.removeClass("red");
     counter.text(charCount);
   });
 });

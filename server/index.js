@@ -10,7 +10,6 @@ const app           = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// const db = require("./lib/in-memory-db");
 const MongoClient = require("mongodb").MongoClient;
 const MONGO_URI = "mongodb://localhost:27017/tweeter";
 
@@ -21,7 +20,7 @@ MongoClient.connect(MONGO_URI, (err, db) => {
   }
   console.log(`CONNECTED to ${MONGO_URI}`);
 
-  //database logic goes here
+  //App database logic goes below///
 
   // Because it exports a function that expects the `db` as a parameter, we can
   // require it and pass the `db` parameter immediately:

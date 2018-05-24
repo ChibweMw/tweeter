@@ -10,12 +10,9 @@
 $(function () {
 
   function renderTweets (tweetData) {
-    const sortNewestFirst = (a, b) => a.created_at - b.created_at;
-    // tweetData.sort(sortNewestFirst);
     tweetData.forEach(function (tweet) {
       return $("#feed").append(createTweetElement(tweet));
     });
-
   }
 
   function createTweetElement(userData) {
@@ -33,7 +30,7 @@ $(function () {
     $tweetHeader.append($userName);
     $tweetHeader.append($userHandle);
 
-    //tweet `body` elements
+    //tweet `body` elements, has no children
     var $tweetBody = $("<div>").text(userData.content.text).addClass("content");
 
     //tweet footer elements
@@ -62,6 +59,7 @@ $(function () {
       url : '/tweets',
       method : 'GET',
       success : function (availableTweets) {
+        //render tweets based on data (availableTweets) fetched from server
         renderTweets(availableTweets);
       }
     });
@@ -69,10 +67,12 @@ $(function () {
 
   loadTweets();
 
+  var $textarea = $("textarea[name='text']");
+
   //toggle tweet composer
   $("#tweetButton").on("click", function() {
     $(".tweetie").slideToggle("fast", function() {
-      $("textarea[name='text']").focus();
+      $textarea.focus();
     });
   });
 
@@ -81,21 +81,30 @@ $(function () {
     event.preventDefault();
 
     var tweetText = $(this).serialize();
-    var $message = $("textarea[name='text']").val();
+    var $message = $textarea.val();
 
     if(!$message) {
+      //when the composer textarea is empty
       alert('Please type something to tweet.');
+
     } else if($message.length > 140) {
+      //when the character limit is exceeded
       alert('Please shorten your tweet.');
+
     } else {
+
       $.ajax('/tweets', {
         method : 'POST',
         data : tweetText
       }).done(function (newTweet) {
+        //make it so new tweets show up at the top
         $("#feed").prepend(createTweetElement(newTweet));
-        $("textarea[name='text']").val('');
+        //empty text are
+        $textarea.val('');
+        //reset counter to max character count
         $(".counter").text('140');
       });
+
     }
   });
 });
