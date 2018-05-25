@@ -75,6 +75,11 @@ $(function () {
   $("#feed").on("click", 'i', function(event) {
     if($(event.target).data('btn-name') === "likes"){
       $(event.target).toggleClass('red');
+      if($(event.target).text() === '') {
+        $(event.target).text('1');
+      } else {
+        $(event.target).text('');
+      }
     }
   });
 
