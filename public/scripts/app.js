@@ -41,7 +41,7 @@ $(function () {
     //footer children
     var $timeStamp = $("<span>").text(moment(userData.created_at).fromNow()).addClass("time-stamp");
     //userData.likes data-tweet-likes=" blablaablbaa"
-    var $likes = $("<span class='mini-icon'><i class='fas fa-heart'></i></span>");
+    var $likes = $("<span class='mini-icon'><i class='fas fa-heart' data-btn-name='likes'></i></span>");
     var $retweet = $("<span class='mini-icon'><i class='fas fa-retweet'></i></span>");
     var $flag = $("<span class='mini-icon'><i class='fas fa-flag'></i></span>");
     //append children to footer
@@ -71,6 +71,13 @@ $(function () {
 
   loadTweets();
 
+  //Like button
+  $("#feed").on("click", 'i', function(event) {
+    if($(event.target).data('btn-name') === "likes"){
+      $(event.target).toggleClass('red');
+    }
+  });
+
   var $textarea = $("textarea[name='text']");
 
   //toggle tweet composer
@@ -80,10 +87,6 @@ $(function () {
     });
   });
 
-  //Like button
-  $("#feed").on("click", function(event) {
-    console.log('Clicke on:', event.target.closest('i'));
-  });
 
   //New tweets submitted here
   $("form").on("submit", function (event) {
