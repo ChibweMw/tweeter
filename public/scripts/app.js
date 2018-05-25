@@ -9,6 +9,8 @@
 
 $(function () {
 
+  var likes = 0;
+
   function renderTweets (tweetData) {
     tweetData.forEach(function (tweet) {
       return $("#feed").append(createTweetElement(tweet));
@@ -76,6 +78,11 @@ $(function () {
     $(".tweetie").slideToggle("fast", function() {
       $textarea.focus();
     });
+  });
+
+  //Like button
+  $("#feed").on("click", function(event) {
+    console.log('Clicke on:', event.target.closest('i'));
   });
 
   //New tweets submitted here
