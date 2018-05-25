@@ -5,6 +5,7 @@
   overflow: auto;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  opacity: 0.65;
 }
 
 .tweet .user-avatar {
@@ -16,8 +17,7 @@
 
 .tweet header .user-handle {
   float: right;
-  /*line-height: 2em;*/
-  color: #b9b9b9;
+  color: #a3a3a3;
   margin: 0em 0.4em;
 }
 
@@ -25,7 +25,7 @@
   float: left;
   /*line-height: 2em;*/
   font-size: 2em;
-  color: #7d878a;
+  color: #29393a;
   margin: 0em 0.2em;
   position: relative;
   bottom: 10px;
@@ -72,11 +72,12 @@
   box-shadow: 1px 1px 10px grey;
 }
 
-.tweet:hover .user-avatar {
+.tweet .user-avatar:hover {
   border-color: white;
   box-shadow: 1px 1px 6px grey;
 }
 
-.tweet header :hover {
-  color: #244751;
+.tweet:hover header {
+  /*color: #244751;*/
+  opacity: 1;
 }
