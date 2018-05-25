@@ -16,6 +16,7 @@ $(function () {
   }
 
   function createTweetElement(userData) {
+
     //Main tweet container
     var $tweet = $("<article>").addClass("tweet");
 
@@ -36,13 +37,14 @@ $(function () {
     //tweet footer elements
     var $tweetFooter = $("<footer>");
     //footer children
-    var $timeStamp = $("<span>").text(userData.created_at).addClass("time-stamp");
-    var $heart = $("<span class='mini-icon'><i class='fas fa-heart'></i></span>");
+    var $timeStamp = $("<span>").text(moment(userData.created_at).fromNow()).addClass("time-stamp");
+    //userData.likes data-tweet-likes=" blablaablbaa"
+    var $likes = $("<span class='mini-icon'><i class='fas fa-heart'></i></span>");
     var $retweet = $("<span class='mini-icon'><i class='fas fa-retweet'></i></span>");
     var $flag = $("<span class='mini-icon'><i class='fas fa-flag'></i></span>");
     //append children to footer
     $tweetFooter.append($timeStamp);
-    $tweetFooter.append($heart);
+    $tweetFooter.append($likes);
     $tweetFooter.append($retweet);
     $tweetFooter.append($flag);
 
