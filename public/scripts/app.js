@@ -23,12 +23,12 @@ $(function () {
     var $tweetHeader = $("<header>");
     //header children
     var $userAvatar = $("<img>").attr("src", userData.user.avatars.regular).addClass("user-avatar");
-    var $userName = $("<h2>").text(userData.user.name).addClass("user-name");
     var $userHandle = $("<span>").text(userData.user.handle).addClass("user-handle");
+    var $userName = $("<h2>").text(userData.user.name).addClass("user-name");
     //append children to header
     $tweetHeader.append($userAvatar);
-    $tweetHeader.append($userName);
     $tweetHeader.append($userHandle);
+    $tweetHeader.append($userName);
 
     //tweet `body` elements, has no children
     var $tweetBody = $("<div>").text(userData.content.text).addClass("content");

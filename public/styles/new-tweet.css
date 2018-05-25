@@ -3,25 +3,57 @@ h2 {
 }
 
 .tweetie h2 {
-  border-bottom: 1px solid black;
+  border-bottom: 0.1em solid white;
+  padding: 0.3em 0.25em;
 }
 
 .tweetie .counter {
   float: right;
-  font-size: 0.85em;
+  font-size: 0.5em;
   font-style: italic;
+  position: relative;
+  bottom: 10px;
+  transform: translateY(20px);
 }
 
 .tweetie textarea {
+  height: 80px;
   padding: 0.3em;
   width: 100%;
+  margin: auto 0px auto;
+  border: none;
+  resize: none;
 }
 
 .tweetie {
   background: #eee;
-  border: 1px solid grey;
+  /*border: 1px solid grey;*/
   margin-right: 2em;
   margin-left: 2em;
   border-radius: 10px;
-  padding: 0.25em 0.5em;
+  padding: 0px;
+  box-shadow: 0px 2px 15px grey;
+}
+
+.tweetie input {
+  height: 2.4em;
+  border: none;
+  margin: 0px;
+  width: 100%;
+  color: black;
+  opacity: 0.5;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.tweetie form {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.tweetie input:hover {
+  border: none;
+  opacity: 1;
+  background-color: #00a087;
+  color: white;
 }

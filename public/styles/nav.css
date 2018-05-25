@@ -8,7 +8,10 @@
   z-index: 1030;
   background-color: #00a087;
   color: #e8fdff;
-  padding: 0px 2em;
+  padding-left: 2em;
+  /*horizontal, vertical, blurr, color*/
+  box-shadow: 0px 1px 10px grey;
+
 }
 
 #nav-bar .logo {
@@ -28,16 +31,20 @@
 #nav-bar button {
   background-color: white;
   color: #00a087;
+  height: 80px;
   float: right;
-  margin: 0.4em 0.7em;
+  margin-left: 0.7em;
   padding: 1.45em 0.5em;
-  border-radius: 7px;
-  border: 1px solid black;
-  opacity: 0.8;
-
+  opacity: 0.85;
+  border: none;
+  font-size: 1.2em;
 }
 
 #nav-bar button:hover {
   color: black;
   opacity: 1;
+}
+
+#nav-bar .fas.fa-pencil-alt {
+  margin-right: 0.5em;
 }

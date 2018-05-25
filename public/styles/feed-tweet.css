@@ -16,17 +16,20 @@
 
 .tweet header .user-handle {
   float: right;
-  line-height: 2em;
+  /*line-height: 2em;*/
   color: #b9b9b9;
+  margin: 0em 0.4em;
 }
 
 .tweet header .user-name {
   float: left;
-  line-height: 2em;
+  /*line-height: 2em;*/
   font-size: 2em;
-  margin-bottom: 0.1em;
-  margin-top: 0.1em;
   color: #7d878a;
+  margin: 0em 0.2em;
+  position: relative;
+  bottom: 10px;
+  transform: translateY(20px);
 }
 
 
@@ -65,7 +68,13 @@
 }
 
 .tweet:hover {
-  border-color: #244751;
+  border-color: white;
+  box-shadow: 1px 1px 10px grey;
+}
+
+.tweet:hover .user-avatar {
+  border-color: white;
+  box-shadow: 1px 1px 6px grey;
 }
 
 .tweet header :hover {
