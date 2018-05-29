@@ -2,6 +2,7 @@ h2 {
   margin-top: 0.2em;
 }
 
+
 .tweetie h2 {
   border-bottom: 0.1em solid white;
   padding: 0.3em 0.25em;
@@ -27,7 +28,6 @@ h2 {
 
 .tweetie {
   background: #eee;
-  /*border: 1px solid grey;*/
   margin-right: 2em;
   margin-left: 2em;
   border-radius: 10px;
@@ -57,3 +57,7 @@ h2 {
   background-color: #00a087;
   color: white;
 }
+
+.red {
+  color: red;
+ }

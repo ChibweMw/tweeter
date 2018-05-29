@@ -51,7 +51,6 @@ $(function () {
       url : '/tweets',
       method : 'GET',
       success : function (availableTweets) {
-        //render tweets based on data (availableTweets) fetched from server
         renderTweets(availableTweets);
       }
     });
@@ -59,13 +58,11 @@ $(function () {
 
   loadTweets();
 
-  //Like button
   $("#feed").on("click", 'i', function(event) {
     if($(event.target).data('btn-name') === "likes"){
       $(event.target).toggleClass('red');
       if($(event.target).text() === '') {
         $(event.target).text('1');
-        //AJAX REQUEST HERE
         $.ajax('/tweets', {
           method: 'PUT',
           data: $(event.target).data()
@@ -80,7 +77,6 @@ $(function () {
 
   var $textarea = $("textarea[name='text']");
 
-  //toggle tweet composer
   $("#tweetButton").on("click", function() {
     $(".tweetie").slideToggle("fast", function() {
       $textarea.focus();
@@ -88,7 +84,6 @@ $(function () {
   });
 
 
-  //New tweets submitted here
   $("form").on("submit", function (event) {
     event.preventDefault();
 
@@ -96,24 +91,23 @@ $(function () {
     var $message = $textarea.val();
 
     if(!$message) {
-      //when the composer textarea is empty
-      alert('Please type something to tweet.');
-
+      $("input").css({'color': 'red', 'opacity': 1}).val("please type something");
+      setTimeout(function(){
+      $("input").css({'color': 'black', 'opacity': 0.5}).val("Tweet");
+      }, 3000);
     } else if($message.length > 140) {
-      //when the character limit is exceeded
-      alert('Please shorten your tweet.');
-
+      $("input").css({'color': 'red', 'opacity': 1}).val("please shorten your message");
+      setTimeout(function(){
+      $("input").css({'color': 'black', 'opacity': 0.5}).val("Tweet");
+      }, 3000);
     } else {
 
       $.ajax('/tweets', {
         method : 'POST',
         data : tweetText
       }).done(function (newTweet) {
-        //make it so new tweets show up at the top
         $("#feed").prepend(createTweetElement(newTweet));
-        //empty text are
         $textarea.val('');
-        //reset counter to max character count
         $(".counter").text('140');
       });
 

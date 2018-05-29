@@ -5,7 +5,8 @@ Tweeter is a simple, single-page AJAX-based Twitter clone. It uses jQuery, HTML5
 Currently, anyone may make a tweet. No need for an account! Go ahead and try it yourself.
 
 
-Make sure to have the following dependencies to properly run the app:
+npm install the following dependencies to properly run the app:
+
 ```
 body-parser - ^1.15.2
 chance      - ^1.0.2
