@@ -9,10 +9,8 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     throw err;
   }
 
-  //Connect to test tweets
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
-  //App Database logic goes here
   function getTweets(callback) {
     db.collection("tweets").find().toArray((err, tweets) => {
       if (err) {
@@ -31,7 +29,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     for (let tweet of tweets) {
       console.log(tweet);
     }
-    //Closing connection
     db.close();
   })
 
