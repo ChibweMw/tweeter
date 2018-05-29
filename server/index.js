@@ -11,9 +11,6 @@ app.use(express.static("public"));
 const MongoClient = require("mongodb").MongoClient;
 const MONGO_URI = "mongodb://localhost:27017/tweeter";
 
-const moment = require('moment');
-
-
 MongoClient.connect(MONGO_URI, (err, db) => {
   if(err) {
     console.log(`Failed to connect with ${MONGO_URI}`);
