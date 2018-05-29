@@ -1,12 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-
-
-
 $(function () {
 
   var likes = 0;
@@ -19,38 +10,35 @@ $(function () {
 
   function createTweetElement(userData) {
 
-    //Main tweet container
+
     var $tweet = $("<article>").addClass("tweet");
 
-    //tweet header elements
+
     var $tweetHeader = $("<header>");
-    //header children
+
     var $userAvatar = $("<img>").attr("src", userData.user.avatars.regular).addClass("user-avatar");
     var $userHandle = $("<span>").text(userData.user.handle).addClass("user-handle");
     var $userName = $("<h2>").text(userData.user.name).addClass("user-name");
-    //append children to header
+
     $tweetHeader.append($userAvatar);
     $tweetHeader.append($userHandle);
     $tweetHeader.append($userName);
 
-    //tweet `body` elements, has no children
     var $tweetBody = $("<div>").text(userData.content.text).addClass("content");
 
-    //tweet footer elements
     var $tweetFooter = $("<footer>");
-    //footer children
+
     var $timeStamp = $("<span>").text(moment(userData.created_at).fromNow()).addClass("time-stamp");
-    //userData.likes data-tweet-likes=" blablaablbaa"
+
     var $likes = $("<span class='mini-icon'><i class='fas fa-heart' data-btn-name='likes'></i></span>");
     var $retweet = $("<span class='mini-icon'><i class='fas fa-retweet'></i></span>");
     var $flag = $("<span class='mini-icon'><i class='fas fa-flag'></i></span>");
-    //append children to footer
+
     $tweetFooter.append($timeStamp);
     $tweetFooter.append($likes);
     $tweetFooter.append($retweet);
     $tweetFooter.append($flag);
 
-    //add all parent elements to `article` tweet body.
     $tweet.append($tweetHeader);
     $tweet.append($tweetBody);
     $tweet.append($tweetFooter);
@@ -77,6 +65,13 @@ $(function () {
       $(event.target).toggleClass('red');
       if($(event.target).text() === '') {
         $(event.target).text('1');
+        //AJAX REQUEST HERE
+        $.ajax('/tweets', {
+          method: 'PUT',
+          data: $(event.target).data()
+        }).done(function (likeToggle) {
+          console.log("Like toggle is:", likeToggle);
+        })
       } else {
         $(event.target).text('');
       }
