@@ -6,9 +6,9 @@ const express       = require('express');
 const tweetsRoutes  = express.Router();
 
 module.exports = function(DataHelpers) {
-
+  
   tweetsRoutes.get("/", function(req, res) {
-    DataHelpers.getTweets((err, tweets) => {
+    DataHelpers.getTweets(function (tweets, err) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
@@ -32,7 +32,7 @@ module.exports = function(DataHelpers) {
     };
 
 
-    DataHelpers.saveTweet(tweet, (err) => {
+    DataHelpers.saveTweet(tweet, function (err) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {

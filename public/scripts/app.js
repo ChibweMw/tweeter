@@ -48,10 +48,14 @@ $(function () {
 
   function loadTweets() {
     $.ajax({
-      url : '/tweets',
       method : 'GET',
+      url : '/tweets',
+      dataType: 'json',
       success : function (availableTweets) {
         renderTweets(availableTweets);
+      },
+      error: function (err){
+        console.log(">> 'GET' Request Failed. Error details: ", err);
       }
     });
   }
